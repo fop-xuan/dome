@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body{
+			background: black;
+		}
+		#c1{
+			background: white;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="c1" ></canvas>
+	<div></div>
+	<script type="text/javascript">
+		
+		var oC=document.getElementById('c1');
+		var oGc=oC.getContext('2d');
+
+		var str1='请拖放此区域';
+		var str2='可以释放';
+
+		var h=40;
+		oGc.textBaseline='bottom';
+		oGc.font=h+'px m';
+		var w=oGc.measureText(str1).width;
+		oGc.fillText(str1,(oC.width-w)/2,(oC.height-h)/2+h);
+
+
+
+		oC.ondragenter=function(){
+			oGc.clearRect(0,0,oC.width,oC.height);
+
+			var w=oGc.measureText(str2).width;
+			oGc.fillText(str2,(oC.width-w)/2,(oC.height-h)/2+h);
+		}
+
+		oC.ondragover=function(ev){
+			var ev=ev||event;
+			ev.preventDefault();
+		}
+
+		oC.ondragleave=function(){
+			oGc.clearRect(0,0,oC.width,oC.height);
+
+			var w=oGc.measureText(str1).width;
+			oGc.fillText(str1,(oC.width-w)/2,(oC.height-h)/2+h);
+		}
+
+		oC.ondrop=function(ev){
+			var ev=ev||event;
+			ev.preventDefault();
+
+			var fl=ev.dataTransfer.files; //获取外部图片 返回一个类数组
+
+			var fd=new FileReader();//拖拽后读取文件信息
+
+
+			fd.readAsDataURL(fl[0])//读取
+
+			fd.onload=function(){//当文件读取成功后 触发onload事件
+
+				var oImage=new Image();//进行图片预加载
+
+				oImage.src=this.result; 
+
+				oImage.onload=function(){
+					eee(this);	
+				}
+
+				function eee(obj){
+					oC.width=obj.width;
+					oC.height=obj.height;
+					oGc.drawImage(obj,0,0);
+					var oImg=oGc.getImageData(0,0,obj.width,obj.height);//获取图像  由于getImageData存在跨域的问题 要在服务器环境下运行
+
+					var w=oImg.width;
+					var h=oImg.height;
+
+					var mkW=w/10;//把图像分成十个块
+					var mkH=h/10;
+
+					var newImg=oGc.createImageData(obj.width,obj.height);//创建一个新的图像
+
+					for(var i=0;i<mkW;i++){
+
+						for(var j=0;j<mkH;j++){
+							
+
+							var color=getXY(oImg,i*10+Math.floor(Math.random()*10),j*10+Math.floor(Math.random()*10));
+							//把图片所有像素分成多个10平方的小方块 每个方块里的像素（先用getXY得到每个10平方的像素中的一个像素） 
+
+							for(var k=0;k<10;k++){//再次嵌套循环
+
+								for(var q=0;q<10;q++){
+
+									setXY(newImg,i*10+k,j*10+q,color);
+									//获取到的每10平方的随机的那个像素 添加到新图像上10平方内 都添加这一种像素
+								}
+							}
+						}
+					}
+
+					oGc.putImageData(newImg,0,0);//生成图片数据
+				}
+			}
+		}
+
+		function getXY(obj,x,y){//获取像素
+
+			var w=obj.width;
+			var h=obj.height;
+			var d=obj.data;
+
+			var color=[];
+
+			color[0]=d[4*(y*w+x)];
+			color[1]=d[4*(y*w+x)+1];
+			color[2]=d[4*(y*w+x)+2];
+			color[3]=d[4*(y*w+x)+3];
+
+			return color;
+		}
+
+
+
+		function setXY(obj,x,y,color){//设置像素	
+			var w=obj.width;
+			var h=obj.height;
+			var d=obj.data;
+
+			d[4*(y*w+x)]=color[0];
+			d[4*(y*w+x)+1]=color[1];
+			d[4*(y*w+x)+2]=color[2];
+			d[4*(y*w+x)+3]=color[3];
+		}
+
+
+	</script>
+</body>
+</html>

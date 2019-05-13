@@ -1,0 +1,193 @@
+@keyframes rotateLogo {
+  0% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+@-webkit-keyframes rotateLogo {
+  0% {
+    -webkit-transform: rotateY(0deg);
+  }
+  100% {
+    -webkit-transform: rotateY(360deg);
+  }
+}
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+body {
+  margin: 0px;
+}
+.bg {
+  opacity: 0;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  background-image: url(../bg/bg.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.Box {
+  overflow: hidden;
+  transition: .5s;
+  height: 100%;
+  position: relative;
+  perspective: 300px;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+}
+.Box .logoLastImg {
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  left: 50%;
+  top: 50%;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  margin: -15% 0 0 -25%;
+}
+.Box .logoLastImg img {
+  width: 100%;
+}
+.Box .logoImg {
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  position: absolute;
+  width: 30%;
+  height: 50%;
+  left: 50%;
+  top: 40%;
+  margin-left: -15%;
+}
+.Box .logoImg img {
+  width: 100%;
+  animation: 2s rotateLogo  linear infinite;
+  -webkit-animation: 2s rotateLogo  linear infinite;
+}
+.Box .logoProgress {
+  height: 10%;
+  left: 0;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  text-align: center;
+}
+.Box #logo4 {
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+.Box #logo4 .debrisBox {
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  animation: 2s rotateLogo  linear infinite;
+  -webkit-animation: 2s rotateLogo  linear infinite;
+}
+.Box #logo4 .debrisBox span {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  left: 50%;
+  top: 50%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin: -15px 0 0 -15px;
+  backface-visibility: hidden;
+}
+.Box #section {
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: 50%;
+  top: 50%;
+}
+.Box #section .sss {
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: 50%;
+  top: 50%;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+}
+.Box #section .fadeIn {
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: 50%;
+  top: 50%;
+}
+.Box #section .fadeIn .bigBg {
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: 50%;
+  top: 50%;
+}
+.Box #section .fadeIn .bigBg span {
+  position: absolute;
+  width: 129px;
+  height: 1172px;
+  left: 50%;
+  top: 50%;
+  margin: -586px 0 0 -64.5px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.Box #section .fadeIn .cloud {
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: 50%;
+  top: 50%;
+}
+.Box #section .fadeIn .cloud span {
+  position: absolute;
+  width: 200px;
+  height: 100px;
+  left: 50%;
+  top: 50%;
+  margin: -50px 0 0 -100px;
+  backface-visibility: hidden;
+}
+.Box #section .fadeIn .pano {
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: 50%;
+  top: 50%;
+}
+.Box #section .fadeIn .pano span {
+  position: absolute;
+  width: 129px;
+  top: 50%;
+  left: 50%;
+  margin-left: -64.5px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}

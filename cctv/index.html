@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function(){
+            document.addEventListener('touchmove',function(ev){
+                ev.preventDefault();
+            },{passive:false});
+        })();    
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=640, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/jquery.js"></script>
+    <script src="js/index.js"></script>
+    <script src='js/Tween.js'></script>
+    <script src="js/Scroll.js"></script>
+</head>
+<body>
+     <!-- 加载页面 -->
+    <section class="page_one" >
+        <div class="tree">
+            <img src="img/tree.jpg" alt="">
+            <div class="title">
+                <div class="bigtitile">
+                    <img src="img/title.png" alt="">
+                    <span class="shake"></span>
+                </div>
+                <div class="mintitile">
+                    <img src="img/title2.png" alt="">
+                </div>
+            </div>
+            <span class="cloud"></span>
+            <span class="cloud"></span>
+            <span class="cloud"></span>
+        </div>
+        <footer>
+            <div class="logo">
+                <img src="img/logo.png" alt="">
+            </div>
+        </footer>
+    </section>
+    <script>page_one();</script>
+    <!-- 首页 -->
+    <section class="page_two"  >
+        <div class="content">
+            <div class="scroll-list">
+                <div class="listBox">
+                    <div class="ico">新闻线索</div>   
+                    <ul class="list">
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                    <div class="titleBox">
+                        <p>成都九寨沟景区</p>
+                        <nav> 
+                            <span class="active"></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </nav>       
+                    </div>
+                </div>
+                    
+                <div class="grade">
+                        <p class="title">给景区评分</p>
+                        <ul class="gradeContent">
+                            <li>
+                                <span>综合印象</span>
+                                <nav>
+                                    <a href="javascript:;"></a>
+                                    <a href="javascript:;"></a>
+                                    <a href="javascript:;"></a>
+                                    <a href="javascript:;"></a>
+                                    <a href="javascript:;"></a>
+                                </nav>   
+                                <input type="hidden" value="0">
+                            </li>
+                            <li>
+                                <span>服务指数</span>
+                                <nav>
+                                    <a href="javascript:;"></a>
+                                    <a href="javascript:;"></a>
+                                    <a href="javascript:;"></a>
+                                    <a href="javascript:;"></a>
+                                    <a href="javascript:;"></a>
+                                </nav>
+                                <input type="hidden" value="0">
+                            </li>
+                            <li>
+                                <span>消费指数</span>
+                                <nav>
+                                    <a href="javascript:;"></a>
+                                    <a href="javascript:;"></a>
+                                    <a href="javascript:;"></a>
+                                    <a href="javascript:;"></a>
+                                    <a href="javascript:;"></a>
+                                </nav>   
+                                <input type="hidden" value="0">  
+                            </li>
+                        </ul>
+                </div>
+                <div class="tags">
+                    <p>给景区添加标签</p>
+                    <div class="labelBox">
+                        <label>
+                            <input type="radio" name="tag">
+                            <span>服务好</span>
+                        </label>
+            
+                        <label>
+                            <input type="radio" name="tag">
+                            <span>景色赞</span>
+                        </label>
+            
+                        <label>
+                            <input type="radio" name="tag">
+                            <span>千篇一律</span>
+                        </label>
+            
+                        <label>
+                            <input type="radio" name="tag">
+                            <span>看人海</span>
+                        </label>
+            
+                        <label>
+                            <input type="radio" name="tag">
+                            <span>挤爆了</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="tag">
+                            <span>服务好</span>
+                        </label>
+            
+                        <label>
+                            <input type="radio" name="tag">
+                            <span>景色赞</span>
+                        </label>
+            
+                        <label>
+                            <input type="radio" name="tag">
+                            <span>千篇一律</span>
+                        </label>
+            
+                        <label>
+                            <input type="radio" name="tag">
+                            <span>看人海</span>
+                        </label>
+            
+                        <label>
+                            <input type="radio" name="tag">
+                            <span>挤爆了</span>
+                        </label>
+                    </div>      
+                </div>
+            </div> 
+        </div>
+       
+        <div class="btnbox">
+            <p class="message">提示信息</p>
+            <button class="btn submit btnColor">提交</button>
+        </div>   
+    </section>
+    <!-- 跳转页面 -->
+    <section class="page_three"  >
+        <div class="imgBox">
+            <img src="img/tranks2.png" alt="">
+        </div>
+        <div class="btnbox">
+                <p class="message">提示信息</p>
+                <button class="btn submit">重新评价</button>
+            </div>   
+    </section>
+
+    <!-- 新闻线索 -->
+    <section class="page_four" >
+        <div class="topBg"></div>
+        <div class="fontPro">请上传旅游投诉以及突发事件线索</div>
+        <div class="upload">
+            <label class="vedio">
+                <input type="file">
+                <span>导入视频或文本</span>
+            </label>
+            <label class="photo">
+                <input type="file">
+                <span>上传照片</span>
+            </label>
+        </div>
+        <div class="btnbox">
+            <p class="message">提示信息</p>
+            <button class="btn">提交</button>
+        </div>
+    </section>
+    <script>page_four($('.page_four'));</script>
+
+
+   
+</body>
+</html>

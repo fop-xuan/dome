@@ -1,0 +1,147 @@
+@keyframes rotateLogo{
+    0%{transform: rotateY(0deg);}
+    100%{transform: rotateY(360deg);}
+}
+@-webkit-keyframes rotateLogo{
+    0%{-webkit-transform: rotateY(0deg);}
+    100%{-webkit-transform: rotateY(360deg);}
+}
+html,body{
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+body{
+    margin: 0px;
+}
+.universalP(@w:100%,@h:100%,@l:50%,@t:50%){
+    position: absolute;
+    width: @w;
+    height:@h;
+    left:@l;
+    top: @t;
+}
+.bg{
+    opacity: 0;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    background-image: url(../bg/bg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+
+.Box{
+    overflow: hidden;
+    transition: .5s;
+    height: 100%;
+    position: relative;
+    perspective: 300px;
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    .logoLastImg{
+        .universalP(50%,50%);
+        transform-style: preserve-3d;
+        -webkit-transform-style: preserve-3d;
+        margin: -15% 0 0 -25%;
+        img{
+            width: 100%;
+        }
+    }
+    .logoImg{
+        transform-style: preserve-3d;
+        -webkit-transform-style: preserve-3d;
+        .universalP(30%,50%,50%,40%);
+        margin-left: -15%; 
+        img{
+            width: 100%;
+            animation: 2s rotateLogo  linear infinite;
+            -webkit-animation:  2s rotateLogo  linear infinite;    
+        }
+    }
+    .logoProgress{
+        .universalP(100%,10%,0,50%);
+        width: 100%;
+        position: absolute;
+        top: 50%;
+        text-align: center;
+    }
+   
+    #logo4{
+        transform-style: preserve-3d;
+        -webkit-transform-style: preserve-3d;
+        .universalP(@l:0,@t:0);
+        .debrisBox{
+            transform-style: preserve-3d;
+            -webkit-transform-style: preserve-3d;
+            .universalP(@l:0,@t:0);
+            animation: 2s rotateLogo  linear infinite;    
+            -webkit-animation:  2s rotateLogo  linear infinite;    
+            span{
+                .universalP(@w:30px,@h:30px);
+                background-position: center center;
+                background-repeat: no-repeat;
+                background-size: contain;
+                margin: -15px 0 0 -15px;
+                backface-visibility: hidden;
+            } 
+        }
+    }  
+
+    #section{
+        .universalP(0,0,50%,50%);
+        .sss{
+            //.sss的存在是为了设置我的视野和景深相同 让屏幕贴着我的视野 什么都无法看到
+            .universalP(0,0,50%,50%);
+           
+            transform-style: preserve-3d;
+            -webkit-transform-style: preserve-3d;
+        }
+        .fadeIn{//在这里 我强行把画面向后面拉  我就可以看到画面了  然后达到了不管在那个尺寸的屏幕 我都是这个距离 所以看到的东西是一样的 不会多不会少
+            transform-style: preserve-3d;
+            -webkit-transform-style: preserve-3d;
+            .universalP(0,0,50%,50%);
+            .bigBg{
+                transform-style: preserve-3d;
+                -webkit-transform-style: preserve-3d;
+                .universalP(0,0,50%,50%);
+                span{
+                    .universalP(129px,1172px,50%,50%);
+                    margin: -586px 0 0 -64.5px;
+                   
+                    backface-visibility: hidden;
+                    -webkit-backface-visibility: hidden;
+                }
+            }
+            .cloud{
+                transform-style: preserve-3d;
+                -webkit-transform-style: preserve-3d;
+                .universalP(0,0,50%,50%);
+                span{
+                    .universalP(200px,100px,50%,50%);
+                    margin: -50px 0 0 -100px;
+                    backface-visibility: hidden;
+                }
+            }
+            .pano{
+                transform-style: preserve-3d;
+                -webkit-transform-style: preserve-3d;
+                .universalP(0,0,50%,50%);
+                span{
+                    position: absolute;
+                    width: 129px;
+                    top: 50%;
+                    left: 50%;
+                    margin-left: -64.5px;
+                    backface-visibility: hidden;
+                    -webkit-backface-visibility: hidden;
+                }
+            }
+        }
+    }
+}
+
+
